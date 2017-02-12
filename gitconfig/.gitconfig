@@ -1,0 +1,10 @@
+[user]
+	name = Ali Al Amine
+	email = alialamine95@gmail.com
+	signingkey = F679FF5394DAF620
+
+[alias]
+	c = commit
+	st = status
+	d = diff
+	p = push
