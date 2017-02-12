@@ -4,7 +4,7 @@
 	signingkey = F679FF5394DAF620
 
 [alias]
-	c = commit
+	c = commit -S
 	st = status
 	d = diff
 	p = push
