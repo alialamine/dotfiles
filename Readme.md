@@ -7,8 +7,6 @@
 
 Author: Ali Al Amine <alialamine95@gmail.com>
 
-bash -> Bash configuration\
-gitconfig -> github configuration
 ````
 
 # Setup
