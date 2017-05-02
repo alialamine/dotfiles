@@ -11,3 +11,7 @@
 	a = add .
 	pl = pull --rebase
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[push]
+	default = current
+[branch]
+	autoSetupMerge = always
