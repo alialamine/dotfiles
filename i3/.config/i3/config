@@ -217,14 +217,15 @@ for_window [window_role="task_dialog"] floating enable
 exec --no-startup-id compton --backend glx
 
 # The notification daemon
-exec --nos-startup-id dunst
+exec --no-startup-id dunst
 
 # Startup applications
 exec --no-startup-id nm-applet
-exec google-chrome-stable
+# exec google-chrome-stable
 # exec qbittorrent
 exec variety
 exec start-pulseaudio-x11
+exec --no-startup-id kgpg
 
 # Customized automation scripts
 exec --no-startup-id /home/ali/bin/battery-notifications
