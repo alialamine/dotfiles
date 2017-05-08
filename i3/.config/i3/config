@@ -224,6 +224,10 @@ exec --no-startup-id nm-applet
 exec google-chrome-stable
 # exec qbittorrent
 exec variety
+exec start-pulseaudio-x11
 
 # Customized automation scripts
 exec --no-startup-id /home/ali/bin/battery-notifications
+
+# Turn the numlock on during startup
+exec_always --no-startup-id numlockx on
