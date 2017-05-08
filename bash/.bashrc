@@ -13,3 +13,4 @@ alias git-cleanup="git branch | grep -v "master" | xargs git branch -D "
 alias gti="git"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
