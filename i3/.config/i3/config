@@ -219,6 +219,13 @@ exec --no-startup-id compton --backend glx
 # The notification daemon
 exec --no-startup-id dunst
 
+# TAKE CARE OF YOUR EYES
+exec --no-startup-id redshift-gtk
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # Startup applications
 exec --no-startup-id nm-applet
 # exec google-chrome-stable
