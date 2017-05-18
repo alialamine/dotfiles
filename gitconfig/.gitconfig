@@ -13,7 +13,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [push]
 	default = current
-[branch]
-	autoSetupMerge = always
 [core]
 	editor = vim
+[url "git@github.com:"]
+	insteadOf = https://github.com/
