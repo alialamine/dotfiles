@@ -217,7 +217,7 @@ bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
 	bindsym b exec --no-startup-id blender; mode "default"
 	bindsym c exec google-chrome-stable; mode "default"
-	bindsym f exec nemo --no-desktop; mode "default"
+	bindsym f exec nemo; mode "default"
 	bindsym g exec google-chrome-stable --incognito; mode "default"
 	bindsym i exec intellij-idea-ultimate-edition; mode "default"
 	bindsym m exec gnome-system-monitor; mode "default"
