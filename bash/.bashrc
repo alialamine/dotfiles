@@ -16,3 +16,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/bin"
 export AWS_SDK_LOAD_CONFIG=1
+export REACT_EDITOR="intellij-idea-ultimate-edition"
+
+source ~/environment_variables
