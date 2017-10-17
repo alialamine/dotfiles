@@ -90,6 +90,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Set the default layout to stacking
+workspace_layout tabbed
+
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -220,8 +223,21 @@ mode "$mode_launcher" {
 	bindsym f exec nemo; mode "default"
 	bindsym g exec google-chrome-stable --incognito; mode "default"
 	bindsym i exec intellij-idea-ultimate-edition; mode "default"
-	bindsym m exec gnome-system-monitor; mode "default"
+	bindsym m exec ~/bin/monitoring; mode "default"
 	bindsym s exec steam; mode "default"
+
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+# Keyboard layout mode
+set $mode_keyboard_layout KeyboardLayout
+bindsym $mod+z mode "$mode_keyboard_layout"
+bindcode $mod+29 exec setxkbmap -model pc104 -layout us
+
+mode "$mode_keyboard_layout" {
+	bindcode 38 exec setxkbmap -model pc104 -layout us; mode "default"
+	bindcode 39 exec setxkbmap -model pc104 -layout ara -variant qwerty_digits; mode "default"
 
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
@@ -264,6 +280,7 @@ exec --no-startup-id nm-applet
 exec variety
 exec start-pulseaudio-x11
 exec --no-startup-id kgpg
+exec --no-startup-id rescuetime
 
 # Customized automation scripts
 exec --no-startup-id /home/ali/bin/battery-notifications

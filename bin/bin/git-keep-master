@@ -1,0 +1,6 @@
+#!/bin/bash
+##############################################
+### Delete all git branches but master
+##############################################
+git branch | grep -v "master" | xargs git branch -D
+
