@@ -275,15 +275,18 @@ bindsym $mod+minus scratchpad show
 
 # Startup applications
 exec --no-startup-id nm-applet
-# exec google-chrome-stable
+exec google-chrome-stable
 # exec qbittorrent
 exec variety
 exec start-pulseaudio-x11
 exec --no-startup-id kgpg
-exec --no-startup-id rescuetime
+# exec --no-startup-id rescuetime
+exec --no-startup-id jetbrains-toolbox
 
 # Customized automation scripts
 exec --no-startup-id /home/ali/bin/battery-notifications
+
+exec --no-startup-id dunst
 
 # Turn the numlock on during startup
 exec_always --no-startup-id numlockx on
