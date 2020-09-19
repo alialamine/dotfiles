@@ -223,7 +223,7 @@ mode "$mode_launcher" {
 	bindsym f exec nemo; mode "default"
 	bindsym g exec google-chrome-stable --incognito; mode "default"
 	bindsym i exec intellij-idea-ultimate-edition; mode "default"
-	bindsym m exec ~/bin/monitoring; mode "default"
+	bindsym m exec ~/bin/monitoring-setup; mode "default"
 	bindsym s exec steam; mode "default"
 	bindsym a exec google-chrome-stable --new-window asana.com
 
@@ -380,4 +380,5 @@ exec --no-startup-id rescuetime
 output eDP-1 pos 0 0
 output HDMI-A-1 pos 1920 0
 
-exec swayidle -w before-sleep swaylock
+exec --no-startup-id swayidle -w before-sleep swaylock
+exec --no-startup-id start-at-workspace --window-name Slack --workspace 2 --move-when-opened true

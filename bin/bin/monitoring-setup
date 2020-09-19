@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+import i3ipc
+import time
+
+MONITORING_WORKSPACE = '19'
+
+i3 = i3ipc.Connection()
+
+if i3.get_tree().find_focused().workspace().name != MONITORING_WORKSPACE:
+    i3.command('workspace ' + MONITORING_WORKSPACE)
+
+i3.command('split horizontal')
+i3.command('exec gnome-system-monitor')
+i3.command('split horizontal')
+time.sleep(1)
+i3.command('exec terminator -e htop')
+time.sleep(1)
+i3.command('split vertical')
+i3.command('exec terminator -e "free -h -s 10"')
+
