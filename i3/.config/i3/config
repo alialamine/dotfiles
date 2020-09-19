@@ -49,23 +49,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -151,6 +139,9 @@ bindcode $mod+Shift+$KP_7 move container to workspace 18
 bindcode $mod+Shift+$KP_8 move container to workspace 19
 bindcode $mod+Shift+$KP_9 move container to workspace 20
 
+bindsym $mod+Shift+Left move workspace to output left
+bindsym $mod+Shift+Right move workspace to ouput right
+
 # automatically start programs on specific workspaces
 # assign[window_role="browser"] 1
 # assign[class="Steam"] 9
@@ -225,9 +216,19 @@ mode "$mode_launcher" {
 	bindsym i exec intellij-idea-ultimate-edition; mode "default"
 	bindsym m exec ~/bin/monitoring; mode "default"
 	bindsym s exec steam; mode "default"
+	bindsym a exec google-chrome-stable --new-window asana.com
 
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
+}
+
+bindsym $mod+p mode "$mode_display"
+
+mode "$mode_display" {
+	# HDMI
+	bindsym o exec xrandr --output HDMI1 --off; mode "default"
+	bindsym l exec xrandr --output HDMI1 --left-of eDP1; mode "default"
+	bindsym r exec xrandr --output HDMI1 --right-of eDP1; mode "default"
 }
 
 # Keyboard layout mode
@@ -245,8 +246,17 @@ mode "$mode_keyboard_layout" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#bar {
+	#status_command /home/ali/pkg/bumblebee-status -m arch-update battery brightness caffeine cmus cpu datetime docker_ps dunst progress disk load memory pulseaudio traffic -p <list of module parameters> -t default
+#}
 bar {
-        status_command i3status
+	output eDP1
+	status_command ~/pkg/bumblebee-status/bumblebee-status -m xrandr caffeine disk:root disk:home brightness amixer spotify cpu memory  battery datetime -p traffic.exclude=lo,virbr,docker,vboxnet,veth,br root.path=/ home.path=/home time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
+}
+
+bar {
+	output HDMI1
+	status_command ~/pkg/bumblebee-status/bumblebee-status -m xrandr caffeine disk:root disk:home brightness amixer spotify cpu memory  battery datetime -p traffic.exclude=lo,virbr,docker,vboxnet,veth,br root.path=/ home.path=/home time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
 }
 
 # Disable the titlebar
@@ -261,7 +271,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # The compositor
-exec --no-startup-id compton --backend glx
+# exec --no-startup-id compton --backend glx
 
 # The notification daemon
 exec --no-startup-id dunst
@@ -289,4 +299,4 @@ exec --no-startup-id /home/ali/bin/battery-notifications
 exec --no-startup-id dunst
 
 # Turn the numlock on during startup
-exec_always --no-startup-id numlockx on
+exec_always --no-startup-id numlockx off

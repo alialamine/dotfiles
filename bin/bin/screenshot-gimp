@@ -1,0 +1,12 @@
+#!/bin/bash
+
+export DATE="$(date +"%y-%m-%d")"
+
+export PICTUREDIR="/home/ali/Pictures/screenshot-$DATE.png"
+
+echo "$PICTUREDIR"
+
+grim -g "$(slurp)" "$PICTUREDIR"
+
+gimp "$PICTUREDIR"
+

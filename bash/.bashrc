@@ -15,8 +15,14 @@ alias gti="git"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/anaconda/bin"
+export PATH="$PATH:/home/ali/.gem/ruby/2.7.0/bin/fastlane"
 export AWS_SDK_LOAD_CONFIG=1
 export REACT_EDITOR="intellij-idea-ultimate-edition"
+export PROMPT_COMMAND='history -a'
+
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 source ~/environment_variables
 
@@ -35,14 +41,25 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-_apex()  {
-  COMPREPLY=()
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-  return 0
-}
-
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && (echo terminal; exit 0) || (echo error; exit 1))" "$([ $? = 0 ] && echo Task finished || echo Something went wrong!)" "$(history | sed -n "\$s/^\s*[0-9]\+\s*\(.*\)[;&|]\s*alert\$/\1/p")"'
 
-complete -F _apex apex
+#complete -F _apex apex
+#source ~/bin/sls-autocomplete.sh
+
+source ~/.bashrcekctl
+
+REACT_EDITOR=gvim
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ali/dotfiles/bin/bin/google-cloud-sdk/path.bash.inc' ]; then . '/home/ali/dotfiles/bin/bin/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ali/dotfiles/bin/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ali/dotfiles/bin/bin/google-cloud-sdk/completion.bash.inc'; fi
+
+alias fastlane="/home/ali/.gem/ruby/2.7.0/bin/fastlane"
+alias antlr=antlr4
