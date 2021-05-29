@@ -23,7 +23,7 @@ set $wallpaper "/home/ali/background.jpg"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font Dina 8, "Noto Sans Emoji" 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -203,6 +203,12 @@ bindsym $mod+r mode "resize"
 # Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+#bindsym $mod+Down exec notify-send something
+bindsym $mod+Up exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
+
+bindsym --locked XF86MonBrightnessUp exec light -S "$(light -G | awk '{ print int(($1 + .72) * 1.4) }')"
+bindsym --locked XF86MonBrightnessDown exec light -S "$(light -G | awk '{ print int($1 / 1.4) }')"
+
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec --no-startup-id /some/path/toggletouchpad.sh # toggle touchpad
@@ -231,7 +237,7 @@ mode "$mode_launcher" {
 	bindsym Return mode "default"
 }
 
-bindsym $mod+p mode "$mode_display"
+bindsym Print exec screenshot
 
 mode "$mode_display" {
 	# HDMI
@@ -316,25 +322,21 @@ exec --no-startup-id compton --backend glx
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Startup applications
-# exec --no-startup-id nm-applet
-# exec google-chrome-stable
-# exec qbittorrent
-# exec variety
-# exec start-pulseaudio-x11
-# exec --no-startup-id kgpg
-# exec --no-startup-id rescuetime
-# exec --no-startup-id jetbrains-toolbox
-
 # Customized automation scripts
 exec --no-startup-id /home/ali/bin/battery-notifications
 
-exec --no-startup-id dunst
+exec --no-startup-id mako
 
 # Turn the numlock on during startup
 exec_always --no-startup-id numlockx off
 
 workspace_auto_back_and_forth yes
+
+# Set the keyboard repeat settings
+input * {
+	repeat_delay  150
+	repeat_rate 25
+}
 
 # disable borders
 for_window [class="(?i)terminator"] border none 
@@ -374,11 +376,12 @@ no_focus [window_type="notification"]
 
 exec --no-startup-id swaybg --image /home/ali/background.jpg
 exec --no-startup-id waybar
-exec --no-startup-id nm-applet --indicator
+# exec --no-startup-id nm-applet --indicator
 exec --no-startup-id rescuetime
 
 output eDP-1 pos 0 0
 output HDMI-A-1 pos 1920 0
 
 exec --no-startup-id swayidle -w before-sleep swaylock
-exec --no-startup-id start-at-workspace --window-name Slack --workspace 2 --move-when-opened true
+exec --no-startup-id start-at-workspace --window-class Slack --workspace 2 --move-when-opened true
+exec --no-startup-id sleep 60 && aw-qt

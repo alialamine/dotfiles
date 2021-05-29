@@ -11,11 +11,14 @@ if i3.get_tree().find_focused().workspace().name != MONITORING_WORKSPACE:
     i3.command('workspace ' + MONITORING_WORKSPACE)
 
 i3.command('split horizontal')
+time.sleep(1)
 i3.command('exec gnome-system-monitor')
 i3.command('split horizontal')
 time.sleep(1)
 i3.command('exec terminator -e htop')
 time.sleep(1)
 i3.command('split vertical')
-i3.command('exec terminator -e "free -h -s 10"')
+i3.command('exec terminator -e "watch free -h"')
+time.sleep(1)
+i3.command('exec terminator -e "sudo iftop -i wlp8s0"')
 

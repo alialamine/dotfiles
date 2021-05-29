@@ -1,0 +1,1 @@
+wf-recorder -g "$(slurp)" --file="/home/ali/Videos/recording-$(date +"%y-%m-%dT%h%M%s").png" --audio

@@ -18,9 +18,18 @@ export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/anaconda/bin"
 export PATH="$PATH:/home/ali/.gem/ruby/2.7.0/bin/fastlane"
+export PATH="$PATH:/opt/atlassian/plugin-sdk/bin"
+export PATH="$PATH:/opt/cuda/bin"
 export AWS_SDK_LOAD_CONFIG=1
 export REACT_EDITOR="intellij-idea-ultimate-edition"
 export PROMPT_COMMAND='history -a'
+
+# Fix android studio on swaywm
+export _JAVA_AWT_WM_NONREPARENTING=1
+export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
+
+# For gradle
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -63,3 +72,5 @@ if [ -f '/home/ali/dotfiles/bin/bin/google-cloud-sdk/completion.bash.inc' ]; the
 
 alias fastlane="/home/ali/.gem/ruby/2.7.0/bin/fastlane"
 alias antlr=antlr4
+
+
