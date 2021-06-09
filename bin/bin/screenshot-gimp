@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DATE="$(date +"%y-%m-%d")"
+export DATE="$(date +"%y-%m-%dT%h%M%s")"
 
 export PICTUREDIR="/home/ali/Pictures/screenshot-$DATE.png"
 

@@ -334,7 +334,7 @@ workspace_auto_back_and_forth yes
 
 # Set the keyboard repeat settings
 input * {
-	repeat_delay  150
+	repeat_delay  200
 	repeat_rate 25
 }
 
@@ -384,4 +384,5 @@ output HDMI-A-1 pos 1920 0
 
 exec --no-startup-id swayidle -w before-sleep swaylock
 exec --no-startup-id start-at-workspace --window-class Slack --workspace 2 --move-when-opened true
-exec --no-startup-id sleep 60 && aw-qt
+exec --no-startup-id aw-server
+exec --no-startup-id /home/ali/aw-watcher-window-wayland
