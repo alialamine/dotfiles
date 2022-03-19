@@ -1,0 +1,1 @@
+~/Android/Sdk/emulator/emulator @SmallScreen -no-snapshot-load -no-snapshot-save -wipe-data
