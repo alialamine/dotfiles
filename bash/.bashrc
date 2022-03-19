@@ -24,12 +24,14 @@ export AWS_SDK_LOAD_CONFIG=1
 export REACT_EDITOR="intellij-idea-ultimate-edition"
 export PROMPT_COMMAND='history -a'
 
+export GOOGLE_APPLICATION_CREDENTIALS="/home/ali/gozilla-6c086-561c158aea15.json"
+
 # Fix android studio on swaywm
 export _JAVA_AWT_WM_NONREPARENTING=1
 export STUDIO_JDK=/usr/lib/jvm/java-11-openjdk
 
 # For gradle
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
